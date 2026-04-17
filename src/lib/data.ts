@@ -145,20 +145,6 @@ export const projects: Project[] = [
     tags: ["Rust", "API"],
     link: "https://github.com/preet3001/rust_ecom",
   },
-  {
-    name: "Show Me The Gains",
-    description:
-      "Lift tracking app for compound movements with filtering and progress insights.",
-    tags: ["Flutter", "Fitness"],
-    link: "https://github.com/preet3001/show_me_the_gains",
-  },
-  {
-    name: "Flutter TDD Clean",
-    description:
-      "Reference project walking through each stage of TDD + clean architecture in Flutter.",
-    tags: ["Flutter", "TDD", "Clean Arch"],
-    link: "https://github.com/preet3001/flutter_tdd_clean_bloc",
-  },
 ];
 
 export const bookingUrl =
