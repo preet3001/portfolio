@@ -1,36 +1,61 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Preet Singh — Portfolio
 
-## Getting Started
+Modern portfolio site built with Next.js 16 (App Router), React 19, Tailwind CSS v4, Framer Motion, and lucide-react.
 
-First, run the development server:
+## Run locally
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Book-a-meeting (Google Meet)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The Contact section opens a modal that embeds a Google Calendar **Appointment Schedule** in an iframe. Appointment Schedules create Google Meet links automatically.
 
-## Learn More
+1. Go to [calendar.google.com](https://calendar.google.com) → Create → **Appointment schedule**.
+2. Configure availability. Under "Location and conferencing" set **Google Meet**.
+3. Open the schedule page and copy the public booking URL (the one that starts with `https://calendar.app.google/...`).
+4. Add it to `.env.local`:
 
-To learn more about Next.js, take a look at the following resources:
+   ```bash
+   NEXT_PUBLIC_BOOKING_URL=https://calendar.app.google/xxxxxxxxxxxxxxxx
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Without this env var, the modal falls back to an email CTA.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Deploy to Vercel
 
-## Deploy on Vercel
+1. Push this repo to GitHub.
+2. Import it at [vercel.com/new](https://vercel.com/new).
+3. In Project Settings → Environment Variables, add `NEXT_PUBLIC_BOOKING_URL`.
+4. Deploy.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Build command and output are auto-detected.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Structure
+
+```
+src/
+├── app/
+│   ├── layout.tsx       # root layout, fonts, metadata
+│   ├── page.tsx         # assembles sections
+│   └── globals.css      # theme tokens + utilities
+├── components/
+│   ├── Navbar.tsx
+│   ├── Hero.tsx
+│   ├── About.tsx
+│   ├── Experience.tsx
+│   ├── Skills.tsx
+│   ├── Projects.tsx
+│   ├── Contact.tsx
+│   ├── BookingModal.tsx # Google Meet booking iframe
+│   ├── Section.tsx
+│   └── Footer.tsx
+└── lib/
+    └── data.ts          # resume & projects content
+```
+
+Edit `src/lib/data.ts` to update content.
