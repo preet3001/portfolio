@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { bookingUrl } from "@/lib/data";
 
 const links = [
   { href: "#about", label: "About" },
@@ -45,7 +46,9 @@ export default function Navbar() {
           ))}
         </ul>
         <a
-          href="#contact"
+          href={bookingUrl}
+          target="_blank"
+          rel="noreferrer"
           className="text-xs md:text-sm rounded-full px-4 py-2 bg-foreground text-background font-medium hover:opacity-90 transition-opacity"
         >
           Book a call

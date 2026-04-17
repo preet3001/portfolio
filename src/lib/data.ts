@@ -163,4 +163,4 @@ export const projects: Project[] = [
 
 export const bookingUrl =
   process.env.NEXT_PUBLIC_BOOKING_URL ||
-  "https://calendar.app.google/";
+  "https://calendar.app.google/eUXJSLNGbPFHDznBA";

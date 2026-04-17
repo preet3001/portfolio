@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowDown, Mail } from "lucide-react";
 import Image from "next/image";
-import { profile } from "@/lib/data";
+import { bookingUrl, profile } from "@/lib/data";
 import { GithubIcon, LinkedinIcon } from "./icons/Brand";
 
 export default function Hero() {
@@ -33,7 +33,9 @@ export default function Hero() {
           </p>
           <div className="flex flex-wrap items-center gap-3 mt-2">
             <a
-              href="#contact"
+              href={bookingUrl}
+              target="_blank"
+              rel="noreferrer"
               className="rounded-full bg-foreground text-background px-6 py-3 text-sm font-medium hover:opacity-90 transition-opacity"
             >
               Book a Google Meet
